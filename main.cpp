@@ -156,7 +156,10 @@ int main()
     int i,j;
     draw();
 
-start:do
+start:
+        int scoreO=0,scoreX=0;
+
+    do
     {
             player=!player;
             cout<<"PLAYER "<<player<<" :"<<endl;
@@ -174,12 +177,28 @@ start:do
         cout<<"DRAW!"<<endl;
     else
         if(player==0)
+        {
             cout<<"Player O won!"<<endl;
+            scoreO++;
+        }
         else
+        {
             cout<<"Player X won!"<<endl;
+            scoreX++;
+        }
     cout<<"Play again?"<<endl;
     cin>>cont;
         if(cont==1)
             goto start;
+        else
+            cout<<"SCORES: "<<endl;
+            cout<<"X won "<<scoreX<<" times"<<endl;
+            cout<<"O won "<<scoreO<<" tines"<<endl;
+        if(scoreX>scoreO)
+            cout<<"X is the real winner!!!"<<endl;
+        if(scoreO>scoreX)
+            cout<<"O is the real winner!!!"<<endl;
+        if(scoreX==scoreO)
+            cout<<"In the end, there is no winner :("<<endl;
     return 0;
 }
